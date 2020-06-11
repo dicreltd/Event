@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>イベント一覧</title>
+<link rel="stylesheet" type="text/css" href="event.css">
+</head>
+<body>
+<h1>イベント一覧</h1>
+
+<table>
+<tr th:each="event : ${list}">
+		<td th:text="${#dates.format(event.hi,'yyyy-MM-dd')}"></td>
+		<td><a th:href="|/event/${event.eid}|" th:text="${event.title}"></a></td>
+	</tr>
+</table>
+
+<h2>イベント追加</h2>
+
+<form action="eadd">
+タイトル：<input type="text" name="title" required><br>
+日付：<input type="date" name="hi" required><br>
+場所：<input type="text" name="place"><br>
+詳細：<input type="text" name="memo"><br>
+<input type="submit" value="追加">
+</form>
+
+
+
+</body>
+</html>

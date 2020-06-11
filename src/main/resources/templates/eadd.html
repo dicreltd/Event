@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>イベント追加確認</title>
+<link rel="stylesheet" type="text/css" href="event.css">
+</head>
+<body>
+<h1>イベント追加確認</h1>
+
+<table th:object="${event}">
+<tr><th>タイトル</th><td th:text="*{title}"></td></tr>
+<tr><th>日付</th><td th:text="*{#dates.format(hi,'yyyy-MM-dd')}"></td></tr>
+<tr><th>場所</th><td th:text="*{place}"></td></tr>
+<tr><th>詳細</th><td th:text="*{memo}"></td></tr>
+</table>
+
+<form action="eadd" method="post" th:object="${event}">
+<input type="hidden" name="title" th:value="*{title}"><br>
+<input type="hidden" name="hi" th:value="*{#dates.format(hi,'yyyy-MM-dd')}"><br>
+<input type="hidden" name="place" th:value="*{place}"><br>
+<input type="hidden" name="memo" th:value="*{memo}"><br>
+<input type="submit" value="追加">
+</form>
+
+
+
+</body>
+</html>

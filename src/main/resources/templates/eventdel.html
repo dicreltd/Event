@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>イベント削除確認</title>
+<link rel="stylesheet" type="text/css" href="event.css">
+</head>
+<body>
+<h1>イベント削除確認</h1>
+
+<table th:object="${event}">
+<tr><th>タイトル</th><td th:text="*{title}"></td></tr>
+<tr><th>日付</th><td th:text="*{#dates.format(hi,'yyyy-MM-dd')}"></td></tr>
+<tr><th>場所</th><td th:text="*{place}"></td></tr>
+<tr><th>詳細</th><td th:text="*{memo}"></td></tr>
+</table>
+
+<form action="eventdel" method="post">
+<input type="hidden" name="eid" th:value="${event.eid}"><br>
+<input type="submit" value="削除">
+</form>
+
+
+
+</body>
+</html>

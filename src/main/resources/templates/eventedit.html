@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>イベント変更</title>
+<link rel="stylesheet" type="text/css" href="/event.css">
+</head>
+<body>
+<h1>イベント変更</h1>
+
+<form method="post" th:object="${event}">
+タイトル：<input type="text" name="title" th:value="*{title}" required><br>
+日付：<input type="date" name="hi" th:value="*{#dates.format(hi,'yyyy-MM-dd')}" required><br>
+場所：<input type="text" name="place" th:value="*{place}"><br>
+詳細：<input type="text" name="memo" th:value="*{memo}"><br>
+<input type="hidden" name="eid" th:value="*{eid}">
+<input type="submit" value="変更">
+</form>
+
+<form action="/eventdel">
+<input type="hidden" name="eid" th:value="${event.eid}">
+<input type="submit" value="削除">
+</form>
+
+
+</body>
+</html>

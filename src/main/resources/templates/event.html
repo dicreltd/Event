@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title  th:text="${event.title}"></title>
+<link rel="stylesheet" type="text/css" href="/event.css">
+</head>
+<body>
+
+<h1 th:text="${event.title}"></h1>
+
+<p th:text="${#dates.format(event.hi,'yyyy-MM-dd')}"></p>
+<p th:text="${event.place}"></p>
+<p th:text="${event.memo}"></p>
+
+<form action="/eventedit">
+<input type="hidden" name="eid" th:value="${event.eid}">
+<input type="submit" value="変更">
+</form>
+
+<h2>参加者リスト</h2>
+
+
+<table>
+<tr><th>氏名</th><th>コメント</th></tr>
+
+<tr th:each="event : ${list}" th:object="${event}">
+	<td th:text="*{name}"></td>
+	<td th:text="*{comment}"></td>
+</tr>
+</table>
+
+<h2>参加フォーム</h2>
+
+<form method="post" action="/event">
+名前：<input type="text" name="name" required><br>
+コメント：<input type="text" name="comment"><br>
+<input type="hidden" name="eid" th:value="${event.eid}">
+<input type="submit" value="送信">
+</form>
+
+
+<p><a href="/ekanri">戻る</a></p>
+
+</body>
+</html>

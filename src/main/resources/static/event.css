@@ -1,0 +1,30 @@
+h1 {
+	border-bottom: 0.2em solid #0033cc;
+	padding: 0.5em;
+}
+h2 {
+	color: white;
+	padding: 0.5em;
+	border-radius: 5px;
+	background-color: #0033CC;
+
+}
+table {
+	border-collapse: collapse;
+}
+td,th {
+	border: 1px solid gray;
+	padding: 0.5em;
+}
+input[type=text],input[type=date]{
+	padding: 0.5em;
+	border-radius: 5px;
+	border-width: 1px;
+	margin: 5px;
+
+}
+input[type=submit]{
+	padding: 0.5em 2em;
+	border-radius: 5px;
+
+}
