@@ -26,6 +26,7 @@ public class EventController {
 	@Autowired
 	private SankashaRepository srepository;
 
+	// Top
 	@GetMapping("/elist")
 	public ModelAndView slist(ModelAndView mav) {
 		List<Event> list = repository.findAll();
